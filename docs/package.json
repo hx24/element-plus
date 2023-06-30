@@ -2,8 +2,11 @@
   "name": "@element-plus/docs",
   "private": true,
   "scripts": {
+    "start": "vitepress dev .",
     "dev": "pnpm gen-locale && vitepress dev .",
-    "build": "NODE_ENV=production && vitepress build . && tsx .vitepress/build/rebuild-pwa.ts",
+    "build": "NODE_ENV=production && vitepress build .",
+    "build-old": "NODE_ENV=production && vitepress build . && tsx .vitepress/build/rebuild-pwa.ts",
+    "preview": "vitepress preview .",
     "serve": "NODE_ENV=production vitepress serve . --port 5001",
     "gen-locale": "rimraf .vitepress/i18n && tsx .vitepress/build/crowdin-generate.ts",
     "crowdin-credentials": "tsx .vitepress/build/crowdin-credentials.ts"

@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import { vpRoot } from '@element-plus/build-utils'
 import { languages } from '../utils/lang'
+import route from './route'
 
 import type { HeadConfig } from 'vitepress'
 
@@ -56,6 +57,7 @@ export const head: HeadConfig[] = [
     {},
     `;(() => {
       window.supportedLangs = ${JSON.stringify(languages)}
+      window.__base = ${JSON.stringify(route.base)}
     })()`,
   ],
 

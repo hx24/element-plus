@@ -3,7 +3,4 @@
     <el-aaa />
   </div>
 </template>
-<style scoped>
-.aaa-container {
-}
-</style>
+<style scoped></style>

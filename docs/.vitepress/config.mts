@@ -2,7 +2,7 @@ import consola from 'consola'
 import { REPO_BRANCH, REPO_PATH } from '@element-plus/build-constants'
 import { docsDirName } from '@element-plus/build-utils'
 import { languages } from './utils/lang'
-import { features, head, mdPlugin, nav, sidebars } from './config'
+import { features, head, mdPlugin, nav, route, sidebars } from './config'
 import type { UserConfig } from 'vitepress'
 
 const buildTransformers = () => {
@@ -42,7 +42,7 @@ languages.forEach((lang) => {
 })
 
 export const config: UserConfig = {
-  base: '/brand-cli/',
+  base: route.base,
   title: 'Element Plus',
   description: 'a Vue 3 based component library for designers and developers',
   lastUpdated: true,
