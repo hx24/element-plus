@@ -21,11 +21,10 @@ const currentLink = computed(() => {
   if (!inBrowser) {
     return `/${page.value?.frontmatter?.lang || ''}/`
   }
-  const existLangIndex = theme.value.langs.findIndex((lang) =>
-    window?.location?.pathname.startsWith(`/${lang}`)
-  )
+  // @ts-ignore
+  const base = window?.__base?.replace(/(^\/)|(\/$)/g, '')
 
-  return existLangIndex === -1 ? '/' : `/${theme.value.langs[existLangIndex]}/`
+  return `/${base}/zh-CN/`
 })
 </script>
 
