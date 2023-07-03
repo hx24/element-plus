@@ -1,6 +1,6 @@
 @use 'function' as *;
 @use '../common/var' as *;
-// forward mixins 将config、function、_var 导出
+// forward 将引入的mixins再导出 类似export * from 'xx'
 @forward 'config';
 @forward 'function';
 @forward '_var';

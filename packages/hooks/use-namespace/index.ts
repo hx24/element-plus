@@ -101,20 +101,20 @@ export const useNamespace = (
     `--${namespace.value}-${block}-${name}`
 
   return {
-    namespace,
-    b,
-    e,
-    m,
-    be,
-    em,
-    bm,
-    bem,
-    is,
+    namespace, // 如 'button'
+    b, // b() 为 'el-button'
+    e, // e('icon') 为 'el-button__icon'
+    m, // m('primary') 为 'el-button--primary'
+    be, // be('primary', 'icon') 为 'el-button-primary__icon'
+    em, // em('icon', 'primary') 为 'el-button__icon-primary'
+    bm, // bm('primary', 'icon') 为 'el-button-primary--icon'
+    bem, // bem('primary', 'icon', 'active') 为 'el-button-primary__icon--active'
+    is, // is('loading', true) 为 'is-loading'
     // css
-    cssVar,
-    cssVarName,
-    cssVarBlock,
-    cssVarBlockName,
+    cssVar, // cssVar({ color: 'red' }) 为 { '--el-color': 'red' }
+    cssVarName, // cssVarName('color') 为 '--el-color'
+    cssVarBlock, // cssVarBlock({ color: 'red' }) 为 { '--el-button-color': 'red' }
+    cssVarBlockName, // cssVarBlockName('color') 为 '--el-button-color'
   }
 }
 

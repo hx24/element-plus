@@ -3,6 +3,11 @@
 @use 'mixins/var' as *;
 @use 'common/var' as *;
 
-.aaa {
-  color: red;
+@include b(aaa) {
+  @include e(title) {
+    color: red;
+  }
+  @include m(blue) {
+    color: blue;
+  }
 }
