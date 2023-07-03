@@ -4,7 +4,7 @@ import { useEventListener, useParallax, useThrottleFn } from '@vueuse/core'
 import { useLang } from '../../composables/lang'
 import homeLocale from '../../../i18n/pages/home.json'
 import HomeCards from '../home/home-cards.vue'
-import HomeFooter from './vp-footer.vue'
+// import HomeFooter from './vp-footer.vue'
 import type { CSSProperties } from 'vue'
 const target = ref<HTMLElement | null>(null)
 const parallax = reactive(useParallax(target))
@@ -142,7 +142,7 @@ useEventListener(window, 'scroll', handleScroll)
     />
     <HomeCards />
   </div>
-  <HomeFooter :is-home="true" />
+  <!-- <HomeFooter :is-home="true" /> -->
 </template>
 
 <style lang="scss">
