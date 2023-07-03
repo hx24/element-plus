@@ -1,5 +1,5 @@
 import consola from 'consola'
-import { REPO_BRANCH, REPO_PATH } from '@element-plus/build-constants'
+import { REPO_BRANCH, REPO_URL } from '@element-plus/build-constants'
 import { docsDirName } from '@element-plus/build-utils'
 import { languages } from './utils/lang'
 import { features, head, mdPlugin, nav, route, sidebars } from './config'
@@ -48,7 +48,7 @@ export const config: UserConfig = {
   lastUpdated: true,
   head, // 在<head>添加标签，包括图标、【语言相关脚本】、黑暗模式相关脚本
   themeConfig: {
-    repo: REPO_PATH,
+    repo: REPO_URL,
     docsBranch: REPO_BRANCH,
     docsDir: docsDirName,
 

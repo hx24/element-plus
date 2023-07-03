@@ -1,11 +1,14 @@
-import GitHubIcon from '~icons/ri/github-fill'
+import { useData } from 'vitepress'
+import GitLabIcon from '~icons/ri/gitlab-fill'
 
 export const useSocialLinks = () => {
+  const { theme } = useData()
+  const { repo } = theme.value
   return [
     {
-      link: 'https://github.com/element-plus/element-plus',
-      icon: GitHubIcon,
-      text: 'GitHub',
+      link: repo,
+      icon: GitLabIcon,
+      text: 'GitLab',
     },
   ]
 }

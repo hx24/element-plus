@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import glob from 'fast-glob'
 import { docRoot, docsDirName, projRoot } from '@element-plus/build-utils'
-import { REPO_BRANCH, REPO_PATH } from '@element-plus/build-constants'
+import { REPO_BRANCH, REPO_URL } from '@element-plus/build-constants'
 import { getLang, languages } from '../utils/lang'
 import footerLocale from '../i18n/component/footer.json'
 
@@ -93,16 +93,17 @@ const transformVpScriptSetup = (code: string, append: Append) => {
   return code
 }
 
-const GITHUB_BLOB_URL = `https://github.com/${REPO_PATH}/blob/${REPO_BRANCH}`
-const GITHUB_TREE_URL = `https://github.com/${REPO_PATH}/tree/${REPO_BRANCH}`
+const _REPO_URL = REPO_URL.replace(/\/$/, '')
+const GITHUB_BLOB_URL = `${_REPO_URL}/-/blob/${REPO_BRANCH}`
+const GITHUB_TREE_URL = `${_REPO_URL}/-/tree/${REPO_BRANCH}`
 const transformComponentMarkdown = (
-  id: string,
+  id: string, // 文件名
   componentId: string,
   code: string,
   append: Append
 ) => {
-  const lang = getLang(id)
-  const docUrl = `${GITHUB_BLOB_URL}/${docsDirName}/en-US/component/${componentId}.md`
+  const lang = getLang(id) // en-US | zh-CN
+  const docUrl = `${GITHUB_BLOB_URL}/${docsDirName}/${lang}/component/${componentId}.md`
   const componentUrl = `${GITHUB_TREE_URL}/packages/components/${componentId}`
   const componentPath = path.resolve(
     projRoot,
@@ -122,12 +123,7 @@ const transformComponentMarkdown = (
 
 ${linksText}`
 
-  const contributorsSection = `
-## ${footerLocale[lang].contributors}
-
-<Contributors id="${componentId}" />`
-
-  append.footers.push(sourceSection, isComponent ? contributorsSection : '')
+  append.footers.push(sourceSection)
 
   return code
 }
