@@ -21,8 +21,7 @@ const currentLink = computed(() => {
   if (!inBrowser) {
     return `/${page.value?.frontmatter?.lang || ''}/`
   }
-  // @ts-ignore
-  const base = window?.__base?.replace(/(^\/)|(\/$)/g, '')
+  const base = theme.value.base?.replace(/(^\/)|(\/$)/g, '')
 
   return `/${base}/zh-CN/`
 })
