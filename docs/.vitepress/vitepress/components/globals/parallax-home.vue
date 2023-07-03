@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, reactive, ref } from 'vue'
 import { useEventListener, useParallax, useThrottleFn } from '@vueuse/core'
+import { useData } from 'vitepress'
 import { useLang } from '../../composables/lang'
 import homeLocale from '../../../i18n/pages/home.json'
 import HomeCards from '../home/home-cards.vue'
@@ -13,9 +14,10 @@ const jumbotronRef = ref<HTMLElement | null>(null)
 const lang = useLang()
 const homeLang = computed(() => homeLocale[lang.value])
 
+const { theme } = useData()
 function jumpTo(path: string) {
   // vitepress has not router
-  location.href = `/${lang.value}/${path}`
+  location.href = `${theme.value.base}${lang.value}/${path}`
 }
 
 const containerStyle: CSSProperties = {
